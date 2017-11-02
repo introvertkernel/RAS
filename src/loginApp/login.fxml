@@ -25,15 +25,25 @@
                     </font>
                 </Text>
                 <TextField fx:id="username" layoutX="268.0" layoutY="193.0" prefHeight="36.0" prefWidth="197.0" promptText="User name" />
-                <Button fx:id="loginButton" layoutX="299.0" layoutY="339.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="135.0" text="LogIn" />
+                <Button fx:id="loginButton" layoutX="299.0" layoutY="339.0" mnemonicParsing="false" onAction="#adminLogin" prefHeight="36.0" prefWidth="135.0" text="LogIn" />
                 <Pane prefHeight="200.0" prefWidth="734.0" />
                 <PasswordField fx:id="password" layoutX="268.0" layoutY="259.0" prefHeight="36.0" prefWidth="196.0" promptText="Password" />
-            <Label layoutX="240.0" layoutY="431.0" prefHeight="31.0" prefWidth="128.0" text="Database Status: " textFill="#e8815c">
+            <Label layoutX="240.0" layoutY="399.0" prefHeight="31.0" prefWidth="128.0" text="Database Status: " textFill="#e8815c">
                <font>
                   <Font name="Garamond" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="dbStatus" layoutX="366.0" layoutY="430.0" prefHeight="33.0" prefWidth="127.0" textFill="#2feb12">
+            <Label fx:id="dbStatus" layoutX="366.0" layoutY="398.0" prefHeight="33.0" prefWidth="127.0" textFill="#2feb12">
+               <font>
+                  <Font name="Garamond" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="loginStatus" layoutX="254.0" layoutY="456.0" prefHeight="49.0" prefWidth="228.0">
+               <font>
+                  <Font name="Garamond" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="loginStatus1" layoutX="264.0" layoutY="466.0" prefHeight="49.0" prefWidth="228.0">
                <font>
                   <Font name="Garamond" size="18.0" />
                </font>
