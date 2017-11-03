@@ -7,9 +7,9 @@ public class studentData{
     private final StringProperty USN;
     private final StringProperty Name;
 
-    public studentData(String USN,String Name){
-        this.USN=new SimpleStringProperty(USN);
-        this.Name=new SimpleStringProperty(Name);
+    public studentData(String usn,String name){
+        this.USN=new SimpleStringProperty(usn);
+        this.Name=new SimpleStringProperty(name);
     }
 
     public String getUSN() {
@@ -35,6 +35,4 @@ public class studentData{
     public void setName(String name) {
         this.Name.set(name);
     }
-
-
 }

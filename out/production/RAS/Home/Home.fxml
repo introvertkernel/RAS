@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-
-<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Home.homeController">
    <children>
       <TabPane prefHeight="586.0" prefWidth="745.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -22,10 +21,10 @@
                      <children>
                         <HBox layoutX="219.0" prefHeight="558.0" prefWidth="530.0">
                            <children>
-                              <TableView prefHeight="558.0" prefWidth="533.0">
+                              <TableView fx:id="studentTable" prefHeight="558.0" prefWidth="533.0">
                                 <columns>
-                                  <TableColumn prefWidth="167.0" text="USN" />
-                                  <TableColumn minWidth="0.0" prefWidth="358.0" text="Name" />
+                                  <TableColumn fx:id="USNcolumn" prefWidth="167.0" text="USN" />
+                                  <TableColumn fx:id="Namecolumn" minWidth="0.0" prefWidth="358.0" text="Name" />
                                 </columns>
                               </TableView>
                            </children>
@@ -38,22 +37,23 @@
                               <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </opaqueInsets>
                         </Label>
-                        <TextField layoutX="14.0" layoutY="68.0" promptText="USN">
+                        <TextField fx:id="usn" layoutX="14.0" layoutY="68.0" promptText="USN">
                            <opaqueInsets>
                               <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </opaqueInsets>
                         </TextField>
-                        <TextField layoutX="14.0" layoutY="110.0" promptText="Name">
+                        <TextField fx:id="name" layoutX="14.0" layoutY="110.0" promptText="Name">
                            <opaqueInsets>
                               <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </opaqueInsets>
                         </TextField>
-                        <Button layoutX="14.0" layoutY="150.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Add">
+                        <Button fx:id="addStudent" layoutX="14.0" layoutY="150.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="26.0" prefWidth="149.0" text="Add">
                            <opaqueInsets>
                               <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </opaqueInsets>
                         </Button>
-                        <Button layoutX="14.0" layoutY="194.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Load Data" />
+                        <Button fx:id="loadStudentData" layoutX="14.0" layoutY="253.0" mnemonicParsing="false" onAction="#loadStudentData" prefHeight="26.0" prefWidth="149.0" text="Load Data" />
+                        <Button fx:id="clearFields" layoutX="14.0" layoutY="202.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="26.0" prefWidth="149.0" text="Clear" />
                      </children>
                   </AnchorPane>
             </content>
