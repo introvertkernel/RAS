@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -60,9 +61,101 @@
           </Tab>
           <Tab text="Result">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox prefHeight="559.0" prefWidth="130.0">
+                           <children>
+                              <AnchorPane prefHeight="559.0" prefWidth="130.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="Add/Fetch" />
+                                    <TextField fx:id="rusn" layoutX="14.0" layoutY="40.0" promptText="USN" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <ComboBox fx:id="rSelectSem" layoutX="-5.0" layoutY="79.0" prefWidth="150.0" promptText="Select SEM" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <TextField fx:id="rSub1" layoutX="10.0" layoutY="121.0" promptText="SUB 1" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <TextField fx:id="rSub2" layoutX="10.0" layoutY="163.0" promptText="SUB 2" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <TextField fx:id="rSub3" layoutX="10.0" layoutY="206.0" promptText="SUB 3" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <TextField fx:id="rSub4" layoutX="10.0" layoutY="246.0" promptText="SUB 4" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <TextField fx:id="rSub5" layoutX="10.0" layoutY="289.0" promptText="SUB 5" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <TextField fx:id="rSub6" layoutX="10.0" layoutY="330.0" promptText="SUB 6" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <TextField fx:id="rSub7" layoutX="10.0" layoutY="375.0" promptText="SUB 7" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <TextField fx:id="rSub8" layoutX="10.0" layoutY="414.0" promptText="SUB 8" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <Button fx:id="rAdd" layoutX="10.0" layoutY="450.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Add" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <Button fx:id="rLoad" layoutX="10.0" layoutY="487.0" mnemonicParsing="false" text="Load" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="130.0" layoutY="60.0" prefHeight="498.0" prefWidth="617.0">
+                           <children>
+                              <TableView prefHeight="498.0" prefWidth="615.0">
+                                <columns>
+                                  <TableColumn fx:id="rColusn" prefWidth="75.0" text="USN" />
+                                  <TableColumn fx:id="rColname" prefWidth="161.0" text="NAME" />
+                                    <TableColumn fx:id="rColsub1" minWidth="9.0" prefWidth="48.0" text="SUB 1" />
+                                    <TableColumn fx:id="rColsub2" prefWidth="39.0" text="SUB 2" />
+                                    <TableColumn fx:id="rColsub3" prefWidth="42.0" text="SUB 3" />
+                                    <TableColumn fx:id="rColsub4" prefWidth="39.0" text="SUB 4" />
+                                    <TableColumn fx:id="rColsub5" prefWidth="40.0" text="SUB 5" />
+                                    <TableColumn fx:id="rColsub6" minWidth="0.0" prefWidth="42.0" text="SUB 6" />
+                                    <TableColumn fx:id="rColsub7" prefWidth="42.0" text="SUB 7" />
+                                    <TableColumn fx:id="rColsub8" prefWidth="41.0" text="SUB 8" />
+                                    <TableColumn fx:id="rColtotal" prefWidth="45.0" text="TOTAL" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <ComboBox fx:id="rSelectSem1" layoutX="167.0" layoutY="14.0" prefWidth="150.0" promptText="Select SEM" />
+                        <Button fx:id="rLoad1" layoutX="457.0" layoutY="14.0" mnemonicParsing="false" prefWidth="150.0" text="Load" />
+                     </children></AnchorPane>
             </content>
           </Tab>
+            <Tab text="Analyze">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="557.0" prefWidth="745.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="142.0" prefHeight="557.0" prefWidth="603.0">
+                                 <children>
+                                    <HBox layoutY="24.0" prefHeight="535.0" prefWidth="604.0">
+                                       <children>
+                                          <TableView prefHeight="537.0" prefWidth="604.0">
+                                             <columns>
+                                                <TableColumn fx:id="acolusn" prefWidth="75.0" text="USN" />
+                                                <TableColumn fx:id="acolname" prefWidth="162.0" text="NAME" />
+                                                <TableColumn fx:id="acolSub1" minWidth="9.0" prefWidth="39.0" text="SUB 1" />
+                                                <TableColumn fx:id="acolSub2" prefWidth="39.0" text="SUB 2" />
+                                                <TableColumn fx:id="acolSub3" prefWidth="41.0" text="SUB 3" />
+                                                <TableColumn fx:id="acolSub4" prefWidth="38.0" text="SUB 4" />
+                                                <TableColumn fx:id="acolSub5" prefWidth="39.0" text="SUB 5" />
+                                                <TableColumn fx:id="acolSub6" minWidth="0.0" prefWidth="40.0" text="SUB 6" />
+                                                <TableColumn fx:id="acolSub7" prefWidth="40.0" text="SUB 7" />
+                                                <TableColumn fx:id="acolSub8" prefWidth="39.0" text="SUB 8" />
+                                                <TableColumn fx:id="acoltotal" prefWidth="51.0" text="TOTAL" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" prefHeight="569.0" prefWidth="129.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="6.0" />
+                              <ComboBox fx:id="aselectSem" layoutX="7.0" layoutY="35.0" prefWidth="150.0" promptText="Select SEM" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                              <Button fx:id="ahMarks" layoutX="7.0" layoutY="67.0" mnemonicParsing="false" text="Highest Marks" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                              <Button fx:id="apStudent" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" text="Passed Student" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                              <Button fx:id="afStudent" layoutX="16.0" layoutY="132.0" mnemonicParsing="false" text="Failed Student" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                              <Button fx:id="alistAll" layoutX="10.0" layoutY="166.0" mnemonicParsing="false" text="List of All Students" AnchorPane.leftAnchor="8.0" />
+                              <Button fx:id="adistnct" layoutX="10.0" layoutY="201.0" mnemonicParsing="false" text="Distiction" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                              <Button fx:id="afClass" layoutX="10.0" layoutY="236.0" mnemonicParsing="false" text="First Class" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                              <Button fx:id="asClass" layoutX="10.0" layoutY="272.0" mnemonicParsing="false" text="Second Class" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

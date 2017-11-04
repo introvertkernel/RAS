@@ -52,7 +52,7 @@
                               <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </opaqueInsets>
                         </Button>
-                        <Button fx:id="loadStudentData" layoutX="14.0" layoutY="253.0" mnemonicParsing="false" onAction="#loadStudentData" prefHeight="26.0" prefWidth="149.0" text="Load Data" />
+                        <Button fx:id="loadStudentData" layoutX="14.0" layoutY="253.0" mnemonicParsing="false" onAction="#loadStudentData" prefHeight="26.0" prefWidth="149.0" text="Fetch Data" />
                         <Button fx:id="clearFields" layoutX="14.0" layoutY="202.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="26.0" prefWidth="149.0" text="Clear" />
                      </children>
                   </AnchorPane>
