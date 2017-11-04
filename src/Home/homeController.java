@@ -8,10 +8,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 //import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -24,6 +22,8 @@ import java.util.ResourceBundle;
 
 public class homeController implements Initializable{
 
+
+    //Student tab
     @FXML
     private TextField usn;
     @FXML
@@ -34,6 +34,106 @@ public class homeController implements Initializable{
     private TableColumn<studentData,String> USNcolumn;
     @FXML
     private TableColumn<studentData,String> Namecolumn;
+
+//Result tab
+    @FXML
+    private TextField rusn;
+    @FXML
+    private ComboBox rSelectSem;
+    @FXML
+    private TextField rSub1;
+    @FXML
+    private TextField rSub2;
+    @FXML
+    private TextField rSub3;
+    @FXML
+    private TextField rSub4;
+    @FXML
+    private TextField rSub5;
+    @FXML
+    private TextField rSub6;
+    @FXML
+    private TextField rSub7;
+    @FXML
+    private TextField rSub8;
+    @FXML
+    private Button rAdd;
+    @FXML
+    private Button rLoad;
+    @FXML
+    private Button rClear;
+    @FXML
+    private ComboBox rSelectSem1;
+    @FXML
+    private Button rLoad1;
+    @FXML
+    private TableView<resultData> rTable;
+    @FXML
+    private TableColumn<resultData,String> rColusn;
+    @FXML
+    private TableColumn<resultData,String> rColname;
+    @FXML
+    private TableColumn<resultData,Integer> rColsub1;
+    @FXML
+    private TableColumn<resultData,Integer> rColsub2;
+    @FXML
+    private TableColumn<resultData,Integer> rColsub3;
+    @FXML
+    private TableColumn<resultData,Integer> rColsub4;
+    @FXML
+    private TableColumn<resultData,Integer> rColsub5;
+    @FXML
+    private TableColumn<resultData,Integer> rColsub6;
+    @FXML
+    private TableColumn<resultData,Integer> rColsub7;
+    @FXML
+    private TableColumn<resultData,Integer> rColsub8;
+    @FXML
+    private TableColumn<resultData,Integer> rColtotal;
+
+
+
+    //Analyze tab
+    @FXML
+    private ComboBox aSelectSem;
+    @FXML
+    private Button aHighmarks;
+    @FXML
+    private Button aPassedstudent;
+    @FXML
+    private Button aFailedstudent;
+    @FXML
+    private Button aListallstudent;
+    @FXML
+    private Button adistiction;
+    @FXML
+    private Button aFirstclass;
+    @FXML
+    private Button aSecondclass;
+    @FXML
+    private TableView<analysisData> aTable;
+    @FXML
+    private TableColumn<analysisData,String> aColusn;
+    @FXML
+    private TableColumn<analysisData,String> aColname;
+    @FXML
+    private TableColumn<analysisData,Integer> aColsub1;
+    @FXML
+    private TableColumn<analysisData,Integer> aColsub2;
+    @FXML
+    private TableColumn<analysisData,Integer> aColsub3;
+    @FXML
+    private TableColumn<analysisData,Integer> aColsub4;
+    @FXML
+    private TableColumn<analysisData,Integer> aColsub5;
+    @FXML
+    private TableColumn<analysisData,Integer> aColsub6;
+    @FXML
+    private TableColumn<analysisData,Integer> aColsub7;
+    @FXML
+    private TableColumn<analysisData,Integer> aColsub8;
+    @FXML
+    private TableColumn<analysisData,Integer> aColtotal;
 
 
     private dbConnection dc;
@@ -95,6 +195,20 @@ public class homeController implements Initializable{
     {
         this.usn.setText("");
         this.name.setText("");
+    }
+
+    @FXML
+    private void rclearFields(ActionEvent actionEvent)
+    {
+        this.rusn.setText("");
+        this.rSub1.setText("");
+        this.rSub2.setText("");
+        this.rSub3.setText("");
+        this.rSub4.setText("");
+        this.rSub5.setText("");
+        this.rSub6.setText("");
+        this.rSub7.setText("");
+        this.rSub8.setText("");
     }
 
 }

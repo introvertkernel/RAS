@@ -25,10 +25,10 @@ public class loginModel {
     public boolean isDatabaseConnected(){
         return this.connection !=null;
     }
-    public boolean isLogin(String user,String pass) throws Exception {
+    public boolean isLogin(String user,String pass)  throws Exception {
         PreparedStatement pr = null;
         ResultSet rs = null;
-        String sql = "SELECT * FEOM login where user = ? and pass = ?";
+        String sql = "SELECT * FROM login where user = ? and pass = ? ";
 
         try {
             pr = this.connection.prepareStatement(sql);
@@ -50,4 +50,10 @@ public class loginModel {
             rs.close();
         }
     }
+       /* if((user == "admin") && (pass == "admin"))
+        {
+            return true;
+        }
+        else return false;
+    }*/
 }

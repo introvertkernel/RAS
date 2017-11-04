@@ -31,6 +31,7 @@ public class loginController implements Initializable {
     Label dbStatus;
     @FXML
     Label loginStatus;
+    @Override
     public void initialize(URL url, ResourceBundle rb){
       if(this.loginmodel.isDatabaseConnected()){
           this.dbStatus.setText("Connected");

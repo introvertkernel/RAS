@@ -1,0 +1,99 @@
+package Home;
+/*
+import dbUtils.dbConnection;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class resultController implements Initializable {
+
+    @FXML
+    private TextField rusn;
+    @FXML
+    private ComboBox rSelectSem;
+    @FXML
+    private TextField rSub1;
+    @FXML
+    private TextField rSub2;
+    @FXML
+    private TextField rSub3;
+    @FXML
+    private TextField rSub4;
+    @FXML
+    private TextField rSub5;
+    @FXML
+    private TextField rSub6;
+    @FXML
+    private TextField rSub7;
+    @FXML
+    private TextField rSub8;
+    @FXML
+    private Button rAdd;
+    @FXML
+    private Button rLoad;
+    @FXML
+    private Button rClear;
+    @FXML
+    private ComboBox rSelectSem1;
+    @FXML
+    private Button rLoad1;
+    @FXML
+    private TableView<resultData> rTable;
+    @FXML
+    private TableColumn<resultData,String> rColusn;
+    @FXML
+    private TableColumn<resultData,String> rColname;
+    @FXML
+    private TableColumn<resultData,String> rColsub1;
+    @FXML
+    private TableColumn<resultData,String> rColsub2;
+    @FXML
+    private TableColumn<resultData,String> rColsub3;
+    @FXML
+    private TableColumn<resultData,String> rColsub4;
+    @FXML
+    private TableColumn<resultData,String> rColsub5;
+    @FXML
+    private TableColumn<resultData,String> rColsub6;
+    @FXML
+    private TableColumn<resultData,String> rColsub7;
+    @FXML
+    private TableColumn<resultData,String> rColsub8;
+    @FXML
+    private TableColumn<resultData,String> rColtotal;
+
+    private dbConnection dc;
+    private ObservableList<resultData> rdata;
+    private String sql = "SELECT * FROM studentDet";
+
+    public void initialize(URL url, ResourceBundle rb){
+        this.dc = new dbConnection();
+
+    }
+
+*/
+
+
+
+
+
+    /*@FXML
+    private void clearFields(ActionEvent actionEvent)
+    {
+        this.rusn.setText("");
+        this.rSub1.setText("");
+        this.rSub2.setText("");
+        this.rSub3.setText("");
+        this.rSub4.setText("");
+        this.rSub5.setText("");
+        this.rSub6.setText("");
+        this.rSub7.setText("");
+        this.rSub8.setText("");
+    }*/
+
+}
