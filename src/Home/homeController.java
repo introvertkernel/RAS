@@ -2,6 +2,7 @@ package Home;
 
 
 import dbUtils.dbConnection;
+//import Home.resultData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
@@ -11,7 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 //import javafx.scene.control.DatePicker;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+//import Home.resultData;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,11 +36,11 @@ public class homeController implements Initializable{
     @FXML
     private TableColumn<studentData,String> Namecolumn;
 
-//Result tab
+    //Result tab
     @FXML
     private TextField rusn;
     @FXML
-    private ComboBox rSelectSem;
+    private ComboBox<option> rSelectSem;
     @FXML
     private TextField rSub1;
     @FXML
@@ -63,7 +64,7 @@ public class homeController implements Initializable{
     @FXML
     private Button rClear;
     @FXML
-    private ComboBox rSelectSem1;
+    private ComboBox<option> rSelectSem1;
     @FXML
     private Button rLoad1;
     @FXML
@@ -95,7 +96,7 @@ public class homeController implements Initializable{
 
     //Analyze tab
     @FXML
-    private ComboBox aSelectSem;
+    private ComboBox<option> aSelectSem;
     @FXML
     private Button aHighmarks;
     @FXML
@@ -138,12 +139,20 @@ public class homeController implements Initializable{
 
     private dbConnection dc;
     private ObservableList<studentData> data;
+    private ObservableList<resultData> list;
     private String sql = "SELECT * FROM studentDet";
-
+    @Override
     public void initialize(URL url, ResourceBundle rb){
         this.dc = new dbConnection();
-
+        this.rSelectSem.setItems(FXCollections.observableArrayList(option.values()));
+        this.rSelectSem1.setItems(FXCollections.observableArrayList(option.values()));
+        this.aSelectSem.setItems(FXCollections.observableArrayList(option.values()));
+        //  rTable.setItems(list);
     }
+
+
+
+    //Load student data in student tab
     @FXML
     private void loadStudentData(ActionEvent event) throws SQLException{
         try {
@@ -169,9 +178,12 @@ public class homeController implements Initializable{
         this.studentTable.setItems(this.data);
 
     }
+
+
+    //Add student in student tab
     @FXML
-    private void addStudent(ActionEvent actionEvent)
-    {
+    private void addStudent(ActionEvent actionEvent) {
+
         String sqlInsert="INSERT INTO studentDet(USN,Name) VALUES(?,?)";
         try {
             //here the name is same but it doesn't matter because this is a local variable
@@ -188,8 +200,12 @@ public class homeController implements Initializable{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
+
+
+    //Clear feilds in Student tab
     @FXML
     private void clearFields(ActionEvent actionEvent)
     {
@@ -209,6 +225,80 @@ public class homeController implements Initializable{
         this.rSub6.setText("");
         this.rSub7.setText("");
         this.rSub8.setText("");
+    }
+
+    //Add marks to sem in Result tab
+    @FXML
+    private void addSemMarks(ActionEvent actionEvent)
+    {
+        String sqlInsert;
+        try {
+            switch (((option) this.rSelectSem.getValue()).toString()) {
+                case "SEM1":
+                    sqlInsert="INSERT INTO SEM1(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    semMarksAdd(sqlInsert);
+                    break;
+                case "SEM2":
+                    sqlInsert="INSERT INTO SEM2(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    semMarksAdd(sqlInsert);
+                    break;
+                case "SEM3":
+                    sqlInsert="INSERT INTO SEM3(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    semMarksAdd(sqlInsert);
+                    break;
+                case "SEM4":
+                    sqlInsert="INSERT INTO SEM4(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    semMarksAdd(sqlInsert);
+                    break;
+                case "SEM5":
+                    sqlInsert="INSERT INTO SEM5(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    semMarksAdd(sqlInsert);
+                    break;
+                case "SEM6":
+                    sqlInsert="INSERT INTO SEM6(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    semMarksAdd(sqlInsert);
+                    break;
+                case "SEM7":
+                    sqlInsert="INSERT INTO SEM7(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    semMarksAdd(sqlInsert);
+                    break;
+                case "SEM8":
+                    sqlInsert="INSERT INTO SEM8(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    semMarksAdd(sqlInsert);
+                    break;
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+    private void semMarksAdd(String sqlinsert){
+        //String sqlInsert="INSERT INTO SEM1(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+        try {
+            //here the name is same but it doesn't matter because this is a local variable
+            Connection conn=dbConnection.getConnection();
+            PreparedStatement statement=conn.prepareStatement(sqlinsert);
+            statement.setString(1,this.rusn.getText());
+            statement.setString(2,this.rSub1.getText());
+            statement.setString(3,this.rSub2.getText());
+            statement.setString(4,this.rSub3.getText());
+            statement.setString(5,this.rSub4.getText());
+            statement.setString(6,this.rSub5.getText());
+            statement.setString(7,this.rSub6.getText());
+            statement.setString(8,this.rSub7.getText());
+            statement.setString(9,this.rSub8.getText());
+
+            statement.execute();
+            conn.close();
+
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
