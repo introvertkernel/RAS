@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="10.0" layoutY="10.0" onSort="#addSemMarks" prefHeight="506.0" prefWidth="686.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columns>
+            <TableColumn fx:id="rColusn" prefWidth="75.0" text="USN" />
+            <TableColumn fx:id="rColsub1" minWidth="9.0" prefWidth="48.0" text="SUB 1" />
+            <TableColumn fx:id="rColsub2" prefWidth="39.0" text="SUB 2" />
+            <TableColumn fx:id="rColsub3" prefWidth="42.0" text="SUB 3" />
+            <TableColumn fx:id="rColsub4" prefWidth="39.0" text="SUB 4" />
+            <TableColumn fx:id="rColsub5" prefWidth="40.0" text="SUB 5" />
+            <TableColumn fx:id="rColsub6" minWidth="0.0" prefWidth="42.0" text="SUB 6" />
+            <TableColumn fx:id="rColsub7" prefWidth="42.0" text="SUB 7" />
+            <TableColumn fx:id="rColsub8" prefWidth="41.0" text="SUB 8" />
+            <TableColumn fx:id="rColtotal" prefWidth="45.0" text="TOTAL" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

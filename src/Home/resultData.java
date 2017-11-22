@@ -8,7 +8,7 @@ import javafx.beans.property.StringProperty;
 
 public class resultData {
     private final StringProperty rColUsn;
-    private final StringProperty rColName;
+    //private final StringProperty rColName;
     private final IntegerProperty rColSub1;
     private final IntegerProperty rColSub2;
     private final IntegerProperty rColSub3;
@@ -19,18 +19,19 @@ public class resultData {
     private final IntegerProperty rColSub8;
     private final IntegerProperty rColTotal;
 
-    public resultData(String usn,String name,Integer sub1,Integer sub2,Integer sub3,Integer sub4,Integer sub5,Integer sub6,Integer sub7,Integer sub8,Integer total){
-        this.rColUsn = new SimpleStringProperty(usn);
-        this.rColName = new SimpleStringProperty(name);
-        this.rColSub1 = new SimpleIntegerProperty(sub1);
-        this.rColSub2 = new SimpleIntegerProperty(sub2);
-        this.rColSub3 = new SimpleIntegerProperty(sub3);
-        this.rColSub4 = new SimpleIntegerProperty(sub4);
-        this.rColSub5 = new SimpleIntegerProperty(sub5);
-        this.rColSub6 = new SimpleIntegerProperty(sub6);
-        this.rColSub7 = new SimpleIntegerProperty(sub7);
-        this.rColSub8 = new SimpleIntegerProperty(sub8);
-        this.rColTotal = new SimpleIntegerProperty(total);
+    public resultData(String usn,Integer sub1,Integer sub2,Integer sub3,Integer sub4,Integer sub5,Integer sub6,Integer sub7,Integer sub8,Integer total){
+       System.out.println("result data");// TWO TIMES IT WORKS,BUT THE THERE ARE 10 COLUMNS AND IT SHOULD PRINT 10 TIMES.
+        rColUsn = new SimpleStringProperty(usn);
+        //this.rColName = new SimpleStringProperty(name);
+        rColSub1 = new SimpleIntegerProperty(sub1);
+        rColSub2 = new SimpleIntegerProperty(sub2);
+        rColSub3 = new SimpleIntegerProperty(sub3);
+        rColSub4 = new SimpleIntegerProperty(sub4);
+        rColSub5 = new SimpleIntegerProperty(sub5);
+        rColSub6 = new SimpleIntegerProperty(sub6);
+        rColSub7 = new SimpleIntegerProperty(sub7);
+        rColSub8 = new SimpleIntegerProperty(sub8);
+        rColTotal = new SimpleIntegerProperty(total);
     }
 
     public String getrColUsn() {
@@ -43,18 +44,6 @@ public class resultData {
 
     public void setrColUsn(String rColUsn) {
         this.rColUsn.set(rColUsn);
-    }
-
-    public String getrColName() {
-        return rColName.get();
-    }
-
-    public StringProperty rColNameProperty() {
-        return rColName;
-    }
-
-    public void setrColName(String rColName) {
-        this.rColName.set(rColName);
     }
 
     public int getrColSub1() {

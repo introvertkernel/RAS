@@ -7,7 +7,7 @@ import javafx.beans.property.StringProperty;
 
 public class analysisData {
     private final StringProperty aColUsn;
-    private final StringProperty aColName;
+    //private final StringProperty aColName;
     private final IntegerProperty aColSub1;
     private final IntegerProperty aColSub2;
     private final IntegerProperty aColSub3;
@@ -18,9 +18,9 @@ public class analysisData {
     private final IntegerProperty aColSub8;
     private final IntegerProperty aColTotal;
 
-    public analysisData(String usn,String name,Integer sub1,Integer sub2,Integer sub3,Integer sub4,Integer sub5,Integer sub6,Integer sub7,Integer sub8,Integer total){
+    public analysisData(String usn,Integer sub1,Integer sub2,Integer sub3,Integer sub4,Integer sub5,Integer sub6,Integer sub7,Integer sub8,Integer total){
         this.aColUsn = new SimpleStringProperty(usn);
-        this.aColName = new SimpleStringProperty(name);
+        //this.aColName = new SimpleStringProperty(name);
         this.aColSub1 = new SimpleIntegerProperty(sub1);
         this.aColSub2 = new SimpleIntegerProperty(sub2);
         this.aColSub3 = new SimpleIntegerProperty(sub3);
@@ -42,18 +42,6 @@ public class analysisData {
 
     public void setaColUsn(String aColUsn) {
         this.aColUsn.set(aColUsn);
-    }
-
-    public String getaColName() {
-        return aColName.get();
-    }
-
-    public StringProperty aColNameProperty() {
-        return aColName;
-    }
-
-    public void setaColName(String aColName) {
-        this.aColName.set(aColName);
     }
 
     public int getaColSub1() {
