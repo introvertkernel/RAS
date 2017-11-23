@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Home.homeController">
+<AnchorPane fx:id="main" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Home.homeController">
    <children>
-      <TabPane prefHeight="586.0" prefWidth="745.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane prefHeight="586.0" prefWidth="745.0" styleClass="url('file:C:/Users/gurun/Desktop/RAS/src/Home/styles.css)" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab text="Student">
             <content>
@@ -22,7 +22,7 @@
                      <children>
                         <HBox layoutX="219.0" prefHeight="558.0" prefWidth="530.0">
                            <children>
-                              <TableView fx:id="studentTable" prefHeight="558.0" prefWidth="533.0">
+                              <TableView fx:id="studentTable" prefHeight="558.0" prefWidth="533.0" style="-fx-background-image: url('file:C:/Users/gurun/Desktop/RAS/src/Home/atriabg.jpg');">
                                 <columns>
                                   <TableColumn fx:id="USNcolumn" prefWidth="167.0" text="USN" />
                                   <TableColumn fx:id="Namecolumn" minWidth="0.0" prefWidth="358.0" text="Name" />

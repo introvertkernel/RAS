@@ -243,39 +243,40 @@ public class homeController /*extends resultController*/ implements Initializabl
     @FXML
     private void addSemMarks(ActionEvent actionEvent)
     {
+        String pro;
         String sqlInsert;
         try {
             switch (((option) this.rSelectSem.getValue()).toString()) {
                 case "SEM1":
-                    sqlInsert="INSERT INTO SEM1(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    sqlInsert="INSERT INTO SEM2(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL) VALUES(?,?,?,?,?,?,?,?,?,?)";
                     semMarksAdd(sqlInsert);
                     break;
                 case "SEM2":
-                    sqlInsert="INSERT INTO SEM2(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    sqlInsert="INSERT INTO SEM2(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL) VALUES(?,?,?,?,?,?,?,?,?,?)";
                     semMarksAdd(sqlInsert);
                     break;
                 case "SEM3":
-                    sqlInsert="INSERT INTO SEM3(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    sqlInsert="INSERT INTO SEM2(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL) VALUES(?,?,?,?,?,?,?,?,?,?)";
                     semMarksAdd(sqlInsert);
                     break;
                 case "SEM4":
-                    sqlInsert="INSERT INTO SEM4(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    sqlInsert="INSERT INTO SEM2(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL) VALUES(?,?,?,?,?,?,?,?,?,?)";
                     semMarksAdd(sqlInsert);
                     break;
                 case "SEM5":
-                    sqlInsert="INSERT INTO SEM5(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    sqlInsert="INSERT INTO SEM2(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL) VALUES(?,?,?,?,?,?,?,?,?,?)";
                     semMarksAdd(sqlInsert);
                     break;
                 case "SEM6":
-                    sqlInsert="INSERT INTO SEM6(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    sqlInsert="INSERT INTO SEM2(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL) VALUES(?,?,?,?,?,?,?,?,?,?)";
                     semMarksAdd(sqlInsert);
                     break;
                 case "SEM7":
-                    sqlInsert="INSERT INTO SEM7(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    sqlInsert="INSERT INTO SEM2(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL) VALUES(?,?,?,?,?,?,?,?,?,?)";
                     semMarksAdd(sqlInsert);
                     break;
                 case "SEM8":
-                    sqlInsert="INSERT INTO SEM8(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
+                    sqlInsert="INSERT INTO SEM2(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL) VALUES(?,?,?,?,?,?,?,?,?,?)";
                     semMarksAdd(sqlInsert);
                     break;
             }
@@ -288,6 +289,17 @@ public class homeController /*extends resultController*/ implements Initializabl
     private void semMarksAdd(String sqlinsert){
         //String sqlInsert="INSERT INTO SEM1(USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E) VALUES(?,?,?,?,?,?,?,?,?)";
         try {
+
+            int v1 = Integer.parseInt(rSub1.getText());
+            int v2 = Integer.parseInt(rSub2.getText());
+            int v3 = Integer.parseInt(rSub3.getText());
+            int v4 = Integer.parseInt(rSub4.getText());
+            int v5 = Integer.parseInt(rSub5.getText());
+            int v6 = Integer.parseInt(rSub6.getText());
+            int v7 = Integer.parseInt(rSub7.getText());
+            int v8 = Integer.parseInt(rSub8.getText());
+            int vT= v1+v2+v3+v4+v5+v6+v7+v8;
+
             //here the name is same but it doesn't matter because this is a local variable
             Connection conn=dbConnection.getConnection();
             PreparedStatement statement=conn.prepareStatement(sqlinsert);
@@ -300,6 +312,7 @@ public class homeController /*extends resultController*/ implements Initializabl
             statement.setString(7,this.rSub6.getText());
             statement.setString(8,this.rSub7.getText());
             statement.setString(9,this.rSub8.getText());
+            statement.setString(10,String.valueOf(vT));
 
             statement.execute();
             conn.close();
@@ -315,11 +328,13 @@ public class homeController /*extends resultController*/ implements Initializabl
             this.rSub8.setText("");
 
         } 
-        catch (SQLException e) {
+        catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+
+    // PROCEDURE
 
     @FXML
     private void rDelete(ActionEvent actionEvent)
@@ -552,35 +567,35 @@ public class homeController /*extends resultController*/ implements Initializabl
         try {
             switch (((option) this.aSelectSem.getValue()).toString()) {
                 case "SEM1":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM1 ASC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM1 DESC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL DESC;";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM2":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM2 ASC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM2 DESC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL DESC;";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM3":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM3 ASC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM3 DESC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL DESC;";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM4":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM4 ASC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM4 DESC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL DESC;";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM5":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM5 ASC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM5 DESC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL DESC;";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM6":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM6 ASC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM6 DESC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL DESC;";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM7":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM7 ASC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM7 DESC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL DESC;";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM8":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM8 ASC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM8 DESC WHERE  USN IS NOT NULL AND USN IS NOT '' ORDER BY TOTAL DESC;";
                     loadAdata(asqlLoad);
                     break;
 
@@ -740,35 +755,35 @@ public class homeController /*extends resultController*/ implements Initializabl
         try {
             switch (((option) this.aSelectSem.getValue()).toString()) {
                 case "SEM1":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM1 WHERE TOTAL != null AND TOTAL>679 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM1 WHERE TOTAL BETWEEN 679 AND 800 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM2":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM2 WHERE TOTAL != null AND TOTAL>679 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM2 WHERE TOTAL BETWEEN 679 AND 800 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM3":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM3 WHERE TOTAL != null AND TOTAL>679 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM3 WHERE TOTAL BETWEEN 679 AND 800 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM4":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM4 WHERE TOTAL != null AND TOTAL>679 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM4 WHERE TOTAL BETWEEN 679 AND 800 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM5":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM5 WHERE TOTAL != null AND TOTAL>679 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM5 WHERE TOTAL BETWEEN 679 AND 800 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM6":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM6 WHERE TOTAL != null AND TOTAL>679 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM6 WHERE TOTAL BETWEEN 679 AND 800 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM7":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM7 WHERE TOTAL != null AND TOTAL>679 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM7 WHERE TOTAL BETWEEN 679 AND 800 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM8":
-                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM8 WHERE TOTAL != null AND TOTAL>679 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM8 WHERE TOTAL BETWEEN 679 AND 800 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
 
@@ -788,35 +803,35 @@ public class homeController /*extends resultController*/ implements Initializabl
         try {
             switch (((option) this.aSelectSem.getValue()).toString()) {
                 case "SEM1":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM1 WHERE TOTAL != null AND TOTAL>519 AND TOTAL < 680 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM1 WHERE TOTAL BETWEEN 519 AND 680 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM2":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM2 WHERE TOTAL != null AND TOTAL>519 AND TOTAL < 680 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM2 WHERE TOTAL BETWEEN 519 AND 680 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM3":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM3 WHERE TOTAL != null AND TOTAL>519 AND TOTAL < 680 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM3 WHERE TOTAL BETWEEN 519 AND 680 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM4":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM4 WHERE TOTAL != null AND TOTAL>519 AND TOTAL < 680 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM4 WHERE TOTAL BETWEEN 519 AND 680 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM5":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM5 WHERE TOTAL != null AND TOTAL>519 AND TOTAL < 680 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM5 WHERE TOTAL BETWEEN 519 AND 680 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM6":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM6 WHERE TOTAL != null AND TOTAL>519 AND TOTAL < 680 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM6 WHERE TOTAL BETWEEN 519 AND 680 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM7":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM7 WHERE TOTAL != null AND TOTAL>519 AND TOTAL < 680 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM7 WHERE TOTAL BETWEEN 519 AND 680 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM8":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM8 WHERE TOTAL != null AND TOTAL>519 AND TOTAL < 680 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM8 WHERE TOTAL BETWEEN 519 AND 680 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
 
@@ -836,35 +851,35 @@ public class homeController /*extends resultController*/ implements Initializabl
         try {
             switch (((option) this.aSelectSem.getValue()).toString()) {
                 case "SEM1":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM1 WHERE TOTAL != null AND TOTAL>319 AND TOTAL < 520 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM1 WHERE TOTAL BETWEEN 319 AND 520 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM2":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM2 WHERE TOTAL != null AND TOTAL>319 AND TOTAL < 520 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM2 WHERE TOTAL BETWEEN 319 AND 520 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM3":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM3 WHERE TOTAL != null AND TOTAL>319 AND TOTAL < 520 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM3 WHERE TOTAL BETWEEN 319 AND 520 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM4":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM4 WHERE TOTAL != null AND TOTAL>319 AND TOTAL < 520 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM4 WHERE TOTAL BETWEEN 319 AND 520 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM5":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM5 WHERE TOTAL != null AND TOTAL>319 AND TOTAL < 520 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM5 WHERE TOTAL BETWEEN 319 AND 520 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM6":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM6 WHERE TOTAL != null AND TOTAL>319 AND TOTAL < 520 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM6 WHERE TOTAL BETWEEN 319 AND 520 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM7":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM7 WHERE TOTAL != null AND TOTAL>319 AND TOTAL < 520 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM7 WHERE TOTAL BETWEEN 319 AND 520 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
                 case "SEM8":
-                    asqlLoad="SELECT SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM8 WHERE TOTAL != null AND TOTAL>319 AND TOTAL < 520 AND USN IS NOT NULL AND USN IS NOT ''";
+                    asqlLoad="SELECT USN,SUB1E,SUB2E,SUB3E,SUB4E,SUB5E,SUB6E,SUB7E,SUB8E,TOTAL FROM SEM8 WHERE TOTAL BETWEEN 319 AND 520 ORDER BY USN";
                     loadAdata(asqlLoad);
                     break;
 
@@ -876,6 +891,9 @@ public class homeController /*extends resultController*/ implements Initializabl
         }
 
     }
+
+    
+
 
 }
 
